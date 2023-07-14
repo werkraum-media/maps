@@ -1,0 +1,22 @@
+plugin.tx_maps {
+    view {
+        # cat=plugin.tx_map/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:maps/Resources/Private/Templates/
+        # cat=plugin.tx_map/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:maps/Resources/Private/Partials/
+        # cat=plugin.tx_map/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:maps/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_map//a; type=string; label=Default storage PID
+        storagePid =
+    }
+    settings {
+        # cat=plugin.tx_map//a; type=string; label=Default Map Provider
+        mapProvider = https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=dLHhwKHL6CUGrfD38cHe
+        # cat=plugin.tx_map//a; type=string; label=Default Map Provider
+        attributionProvider = <a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>
+        # cat=plugin.tx_map//a; type=string; label=Permanent GeoJson
+        permanentGeoJson =
+    }
+}

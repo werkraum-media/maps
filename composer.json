@@ -1,0 +1,43 @@
+{
+    "name": "werkraummedia/maps",
+    "description": "Extension to visualize maps",
+    "license": "GPL-2.0-or-later",
+    "type": "typo3-cms-extension",
+    "homepage": "https://github.com/werkraum-media/maps",
+    "authors": [
+        {
+            "name": "Dirk Koritnik",
+            "email": "koritnik@werkraum-media.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^10.4 || ^11.5",
+        "typo3/cms-extbase": "^10.4 || ^11.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "WerkraumMedia\\Maps\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WerkraumMedia\\Maps\\Tests\\": "Tests"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "maps"
+        }
+    },
+    "require-dev": {
+        "rector/rector": "^0.11.52"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+          "typo3/class-alias-loader": true,
+          "typo3/cms-composer-installers": true
+        }
+    }
+}

@@ -1,0 +1,44 @@
+plugin.tx_maps {
+    view {
+        templateRootPaths {
+            0 = EXT:maps/Resources/Private/Templates/
+            1 = {$plugin.tx_maps.view.templateRootPath}
+        }
+        partialRootPaths {
+            0 = EXT:maps/Resources/Private/Partials/
+            1 = {$plugin.tx_maps.view.partialRootPath}
+        }
+        layoutRootPaths {
+            0 = EXT:maps/Resources/Private/Layouts/
+            1 = {$plugin.tx_maps.view.layoutRootPath}
+        }
+    }
+    persistence {
+        storagePid = {$plugin.tx_maps.persistence.storagePid}
+        recursive = 1
+    }
+    features {
+        # skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+        # Should be on by default, but can be disabled if all action in the plugin are uncached
+        requireCHashArgumentForActionArguments = 1
+    }
+    mvc {
+
+    }
+    settings {
+        mapProvider = {$plugin.tx_maps.settings.mapProvider}
+        attributionProvider = {$plugin.tx_maps.settings.attributionProvider}
+        permanentGeoJson = {$plugin.tx_maps.settings.permanentGeoJson}
+    }
+}
+
+page {
+    includeCSS {
+        #leaflet = EXT:map/Resources/Public/Stylesheets/leaflet.css
+    }
+    includeJSFooterlibs {
+        #leaflet = EXT:map/Resources/Public/Javascripts/leaflet.js
+    }
+}
