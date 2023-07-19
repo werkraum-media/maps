@@ -15,13 +15,6 @@
 
         map.scrollWheelZoom.disable();
 
-        map.on('click', function(e){
-            var coord = e.latlng;
-            var lat = coord.lat;
-            var lng = coord.lng;
-            console.log("You clicked the map at latitude: " + lat + " and longitude: " + lng);
-        });
-
         L.tileLayer(mapProvider, {
             bounds: bounds,
             attribution: attributionProvider
@@ -75,18 +68,17 @@
     let drawMask = function() {
         L.mask(maskGeoJson, {
             fillOpacity: 1, 
-            fillColor: '#cccccc', 
+            fillColor: '#cc00cc', 
             stroke: true, 
-            color: '#cccccc', 
+            color: '#cc00cc', 
             width: 1, 
-            opacity: 0.8
+            opacity: 1
             }
         ).addTo(map);
     }
 
     let initialize = function() {
         if (document.getElementById("map")) {
-            console.log('Init map');
             initMap();
             drawMarkers();
             drawMask();

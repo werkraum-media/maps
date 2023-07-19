@@ -38,12 +38,12 @@ plugin.tx_maps {
 
 page {
     includeCSS {
-        leaflet = EXT:maps/Resources/Public/Stylesheets/leaflet/leaflet.css
+        #leaflet = EXT:maps/Resources/Public/Stylesheets/leaflet/leaflet.css
     }
     includeJSFooterlibs {
-        leaflet = EXT:maps/Resources/Public/JavaScripts/leaflet/leaflet.js
-        mask = EXT:maps/Resources/Public/JavaScripts/leaflet/leaflet.mask.js
-        map = EXT:maps/Resources/Public/JavaScripts/map.js
+        #leaflet = EXT:maps/Resources/Public/JavaScripts/leaflet/leaflet.js
+        #mask = EXT:maps/Resources/Public/JavaScripts/leaflet/leaflet.mask.js
+        #map = EXT:maps/Resources/Public/JavaScripts/map.js
     }
 }
 
