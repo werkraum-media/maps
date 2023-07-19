@@ -1,0 +1,35 @@
+<T3DataStructure>
+  <meta>
+    <langDisable>1</langDisable>
+  </meta>
+  <sheets>
+    <main>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>LLL:EXT:maps/Resources/Private/Language/locallang.xlf:flexform.sheet.title</sheetTitle>
+        </TCEforms>
+        <type>array</type>
+        <el>
+          <title>
+            <TCEforms>
+              <label>LLL:EXT:maps/Resources/Private/Language/Backend/locallang.xlf:flexform.title</label>
+              <config>
+                <type>input</type>
+                <eval>trim,required</eval>
+              </config>
+            </TCEforms>
+          </title>
+          <subtitle>
+            <TCEforms>
+              <label>LLL:EXT:maps/Resources/Private/Language/Backend/locallang.xlf:flexform.subtitle</label>
+              <config>
+                <type>text</type>
+                <eval>trim</eval>
+              </config>
+            </TCEforms>
+          </subtitle>
+        </el>
+      </ROOT>
+    </main>
+  </sheets>
+</T3DataStructure>

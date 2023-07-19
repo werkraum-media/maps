@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="messages" date="2023-02-15T13:06:03Z" product-name="ce_events_list">
+        <header/>
+        <body>
+            <trans-unit id="title" approved="yes">
+                <source>Maps</source>
+            </trans-unit>
+            <trans-unit id="group.title" approved="yes">
+                <source>Maps</source>
+            </trans-unit>
+            <trans-unit id="ce.title" approved="yes">
+                <source>Map</source>
+            </trans-unit>
+            <trans-unit id="ce.description" approved="yes">
+                <source>Provides a simple map autput</source>
+            </trans-unit>
+            <trans-unit id="page.title">
+                <source>Point of interest</source>
+            </trans-unit>
+            <trans-unit id="page.poi.lat">
+                <source>Latitude</source>
+            </trans-unit>
+            <trans-unit id="page.poi.lng">
+                <source>Longitude</source>
+            </trans-unit>
+            <trans-unit id="page.poi.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="page.poi.subtitle">
+                <source>Subtitle</source>
+            </trans-unit>
+            <trans-unit id="page.poi.address">
+                <source>Address</source>
+            </trans-unit>
+            <trans-unit id="page.poi.phone">
+                <source>Phone</source>
+            </trans-unit>
+            <trans-unit id="page.poi.email">
+                <source>E-Mail</source>
+            </trans-unit>
+            <trans-unit id="page.poi.www">
+                <source>Website link</source>
+            </trans-unit>
+            <trans-unit id="page.poi.booking">
+                <source>Booking link</source>
+            </trans-unit>
+            <trans-unit id="page.poi.type">
+                <source>Type</source>
+            </trans-unit>
+            <trans-unit id="page.poi.city">
+                <source>City</source>
+            </trans-unit>
+            <trans-unit id="page.poi.sight">
+                <source>Sight</source>
+            </trans-unit>
+            <trans-unit id="page.poi.host">
+                <source>Host</source>
+            </trans-unit>
+            <trans-unit id="page.poi.bar">
+                <source>Bar</source>
+            </trans-unit>
+            <trans-unit id="page.poi.shop">
+                <source>Shop</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

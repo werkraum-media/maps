@@ -1,0 +1,22 @@
+mod.wizards.newContentElement.wizardItems {
+   maps {
+      header = LLL:EXT:maps/Resources/Private/Language/locallang.xlf:group.title
+      show = *
+      elements {
+         map {
+            iconIdentifier = maps-ce
+            title = LLL:EXT:maps/Resources/Private/Language/locallang.xlf:ce.title
+            description = LLL:EXT:maps/Resources/Private/Language/locallang.xlf:ce.description
+            tt_content_defValues {
+               CType = map
+               header = Map
+               header_layout = 100
+            }
+         }
+      }
+   }
+}
+
+TCEFORM.tt_content {
+    CType.keepItems := addToList(map)
+}
