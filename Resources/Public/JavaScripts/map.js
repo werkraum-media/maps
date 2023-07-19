@@ -68,9 +68,9 @@
     let drawMask = function() {
         L.mask(maskGeoJson, {
             fillOpacity: 1, 
-            fillColor: '#cc00cc', 
+            fillColor: '#666666', 
             stroke: true, 
-            color: '#cc00cc', 
+            color: '#666666', 
             width: 1, 
             opacity: 1
             }
