@@ -4,9 +4,9 @@
 
     let initMap = function () {
 
-        var northEast = L.latLng(boundsNorthEast),
-        southWest = L.latLng(boundsSouthWest),
-        bounds = L.latLngBounds(southWest, northEast);
+        var northEast = L.latLng(boundsNorthEast);
+        var southWest = L.latLng(boundsSouthWest);
+        var bounds = L.latLngBounds(southWest, northEast);
 
         map = L.map('map', {
             minZoom: zoomMin,
@@ -15,17 +15,18 @@
 
         map.scrollWheelZoom.disable();
 
-        L.tileLayer(mapProvider, {
-            bounds: bounds,
-            attribution: attributionProvider
-        }).addTo(map);
-
         map.on('click', function(e){
             var coord = e.latlng;
             var lat = coord.lat;
             var lng = coord.lng;
             console.log("You clicked the map at latitude: " + lat + " and longitude: " + lng);
         });
+
+        L.tileLayer(mapProvider, {
+            bounds: bounds,
+            attribution: attributionProvider
+        }).addTo(map);
+
     };
 
     let nl2br = function (str, replaceMode, isXhtml) {
@@ -52,15 +53,18 @@
             });
 
             var latlng = L.latLng({ lat: pois[i].data.geo_lat, lng: pois[i].data.geo_long });
-            var title = pois[i].data.title;
-            var subtitle = pois[i].data.subtitle;
-            var abstract = pois[i].data.abstract;
-            var address = pois[i].data.geo_address;
-            var slug = pois[i].data.slug;
+            var pageTitle = ((pois[i].data.title) ? pois[i].data.title : '');
+            var pageSubtitle = ((pois[i].data.subtitle) ? pois[i].data.subtitle : '');
+            var pageAbstract = ((pois[i].data.abstract) ? pois[i].data.abstract : '');
+            var pageSlug = ((pois[i].data.slug) ? pois[i].data.slug : '');
+            var geoTitle = ((pois[i].data.geo_title) ? pois[i].data.geo_title : '');
+            var geoSubitle = ((pois[i].data.geo_subtitle) ? pois[i].data.geo_subtitle : '');
+            var geoAddress = ((pois[i].data.geo_address) ? pois[i].data.geo_address : '');
+            
 
             L.marker( latlng, {icon: costumIcon})
-                .bindTooltip(title, {permanent: false, direction: 'bottom', opacity: '0.8', offset: [0,0]})
-                .bindPopup('<p><b><a href="' + slug + '">' + title + '</a></b><br><b>' + subtitle + '</b><br>' + abstract + '<br><small>' + nl2br(address)  + '</small></p>')
+                .bindTooltip(pageTitle, {permanent: false, direction: 'bottom', opacity: '0.8', offset: [0,0]})
+                .bindPopup(`<p><b><a href="${pageSlug}">${pageTitle}</a></b><br><b>${pageSubtitle}</b><br>${pageAbstract}<br><small>${nl2br(geoAddress)}</small></p>`)
                 .addTo(map);
             
                 bounds.extend(latlng);
@@ -69,7 +73,15 @@
     }
 
     let drawMask = function() {
-        L.mask(maskGeoJson, {fillOpacity: 1, fillColor: '#cccccc', stroke: true, color: '#cccccc', width: 1, opacity: 0.8}).addTo(map);
+        L.mask(maskGeoJson, {
+            fillOpacity: 1, 
+            fillColor: '#cccccc', 
+            stroke: true, 
+            color: '#cccccc', 
+            width: 1, 
+            opacity: 0.8
+            }
+        ).addTo(map);
     }
 
     let initialize = function() {
