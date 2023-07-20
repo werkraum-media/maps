@@ -10,8 +10,9 @@
 
         map = L.map('map', {
             minZoom: zoomMin,
+            maxZoom: zoomMax,
             maxBounds: bounds
-        }).setView([51.37975919204143, 10.541374896190414], zoomMax);
+        }).setView([51.37975919204143, 10.541374896190414], 8);
 
         map.scrollWheelZoom.disable();
 
@@ -51,26 +52,26 @@
             var pageAbstract = ((pois[i].data.abstract) ? pois[i].data.abstract : '');
             var pageSlug = ((pois[i].data.slug) ? pois[i].data.slug : '');
             var geoTitle = ((pois[i].data.geo_title) ? pois[i].data.geo_title : '');
-            var geoSubitle = ((pois[i].data.geo_subtitle) ? pois[i].data.geo_subtitle : '');
+            var geoSubtitle = ((pois[i].data.geo_subtitle) ? pois[i].data.geo_subtitle : '');
             var geoAddress = ((pois[i].data.geo_address) ? pois[i].data.geo_address : '');
             
 
             L.marker( latlng, {icon: costumIcon})
                 .bindTooltip(pageTitle, {permanent: false, direction: 'bottom', opacity: '0.8', offset: [0,0]})
-                .bindPopup(`<p><b><a href="${pageSlug}">${pageTitle}</a></b><br><b>${pageSubtitle}</b><br>${pageAbstract}<br><small>${nl2br(geoAddress)}</small></p>`)
+                .bindPopup(`<p><b><a href="${pageSlug}">${geoTitle}</a></b><br><b>${geoSubtitle}</b><br>${pageAbstract}<br><small>${nl2br(geoAddress)}</small></p>`)
                 .addTo(map);
             
                 bounds.extend(latlng);
         }
-        //map.fitBounds(bounds);
+        map.fitBounds(bounds);
     }
 
     let drawMask = function() {
         L.mask(maskGeoJson, {
             fillOpacity: 1, 
-            fillColor: '#666666', 
+            fillColor: maskColor, 
             stroke: true, 
-            color: '#666666', 
+            color: '#ffffff', 
             width: 1, 
             opacity: 1
             }
@@ -79,9 +80,15 @@
 
     let initialize = function() {
         if (document.getElementById("map")) {
+
             initMap();
-            drawMarkers();
-            drawMask();
+
+            if (pois != null) {
+                drawMarkers();
+            }
+            if (maskGeoJson != null) {
+                drawMask();
+            }
         }
     };
 

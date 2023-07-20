@@ -29,6 +29,7 @@ plugin.tx_maps {
         attributionProvider = {$plugin.tx_maps.settings.attributionProvider}
         permanentGeoJson = {$plugin.tx_maps.settings.permanentGeoJson}
         maskGeoJson = {$plugin.tx_maps.settings.maskGeoJson}
+        maskColor = {$plugin.tx_maps.settings.maskColor}
         boundsNorthEast = {$plugin.tx_maps.settings.boundsNorthEast}
         boundsSouthWest = {$plugin.tx_maps.settings.boundsSouthWest}
         zoomMin = {$plugin.tx_maps.settings.zoomMin}
@@ -92,6 +93,8 @@ tt_content {
             permanentGeoJson.value < plugin.tx_maps.settings.permanentGeoJson
             maskGeoJson = TEXT
             maskGeoJson.value < plugin.tx_maps.settings.maskGeoJson
+            maskColor = TEXT
+            maskColor.value < plugin.tx_maps.settings.maskColor
             boundsNorthEast = TEXT
             boundsNorthEast.value < plugin.tx_maps.settings.boundsNorthEast
             boundsSouthWest = TEXT

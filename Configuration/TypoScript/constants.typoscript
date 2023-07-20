@@ -12,17 +12,19 @@ plugin.tx_maps {
         storagePid =
     }
     settings {
-        # 'http://localhost:1234/fileadmin/map/{z}/{x}/{y}.png'
+        #mapProvider = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
         # 'https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=dLHhwKHL6CUGrfD38cHe'
 
         # cat=plugin.tx_maps//a; type=string; label=Default Map Provider
-        mapProvider = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+        mapProvider = 'http://localhost:1234/fileadmin/map/{z}/{x}/{y}.png'
         # cat=plugin.tx_maps//a; type=string; label=Map Provider Attribution
         attributionProvider = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         # cat=plugin.tx_maps//a; type=string; label=Permanent GeoJson
         permanentGeoJson =
         # cat=plugin.tx_maps//a; type=string; label=Mask geoJson
         maskGeoJson ='/typo3conf/ext/maps/Resources/Public/Data/germany.geo.json'
+        # cat=plugin.tx_maps//a; type=string; label=Mask color
+        maskColor ='#ff00ff'
         # cat=plugin.tx_maps//a; type=string; label=Bounds North East
         boundsNorthEast = 55.1, 5.86
         # cat=plugin.tx_maps//a; type=string; label=Bounds South West
