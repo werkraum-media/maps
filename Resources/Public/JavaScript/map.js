@@ -55,7 +55,6 @@
             var geoSubtitle = ((pois[i].data.geo_subtitle) ? pois[i].data.geo_subtitle : '');
             var geoAddress = ((pois[i].data.geo_address) ? pois[i].data.geo_address : '');
             
-
             L.marker( latlng, {icon: costumIcon})
                 .bindTooltip(pageTitle, {permanent: false, direction: 'bottom', opacity: '0.8', offset: [0,0]})
                 .bindPopup(`<p><b><a href="${pageSlug}">${geoTitle}</a></b><br><b>${geoSubtitle}</b><br>${pageAbstract}<br><small>${nl2br(geoAddress)}</small></p>`)

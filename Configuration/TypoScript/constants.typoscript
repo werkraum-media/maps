@@ -12,11 +12,12 @@ plugin.tx_maps {
         storagePid =
     }
     settings {
-        #mapProvider = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
-        # 'https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=dLHhwKHL6CUGrfD38cHe'
+        # 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+        # 'http://localhost:1234/fileadmin/map/{z}/{x}/{y}.png'
+        # 'https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=xxxxxxxxxx'
 
         # cat=plugin.tx_maps//a; type=string; label=Default Map Provider
-        mapProvider = 'http://localhost:1234/fileadmin/map/{z}/{x}/{y}.png'
+        mapProvider = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
         # cat=plugin.tx_maps//a; type=string; label=Map Provider Attribution
         attributionProvider = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         # cat=plugin.tx_maps//a; type=string; label=Permanent GeoJson
@@ -24,7 +25,7 @@ plugin.tx_maps {
         # cat=plugin.tx_maps//a; type=string; label=Mask geoJson
         maskGeoJson ='/typo3conf/ext/maps/Resources/Public/Data/germany.geo.json'
         # cat=plugin.tx_maps//a; type=string; label=Mask color
-        maskColor ='#ff00ff'
+        maskColor ='#ffffff'
         # cat=plugin.tx_maps//a; type=string; label=Bounds North East
         boundsNorthEast = 55.1, 5.86
         # cat=plugin.tx_maps//a; type=string; label=Bounds South West

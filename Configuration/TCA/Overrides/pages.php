@@ -60,7 +60,12 @@ defined('TYPO3_MODE') or die();
                     'default' => '',
                     'behaviour' => [
                         'allowLanguageSynchronization' => true
-                    ]
+                    ],
+                    'fieldControl' => [
+                        'locationMap' => [
+                            'renderType' => 'locationMapWizard'
+                        ]
+                    ],
                 ],
             ],
             'geo_title' => [
