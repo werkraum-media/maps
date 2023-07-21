@@ -71,6 +71,7 @@ tt_content {
             20 {
                 if.isTrue.field = pages
                 table = pages
+                selectFields = title, abstract, geo_lat, geo_long, geo_title, geo_subtitle, geo_address, geo_type, geo_phone, geo_email, geo_www, geo_booking
                 orderBy = pid
                 pidInList.field = pages
                 recursive = 0

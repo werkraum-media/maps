@@ -19,25 +19,12 @@ defined('TYPO3_MODE') || die('Access denied.');
         '@import "EXT:maps/Configuration/TypoScript/setup.typoscript"'
     );
 
-    $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-        \TYPO3\CMS\Core\Imaging\IconRegistry::class
-    );
-
-    $iconRegistry->registerIcon(
-        'maps-ce',
-        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        [
-            'source' => 'EXT:maps/Resources/Public/Icons/Ce.svg'
-        ]
-    );
-
-    $iconRegistry->registerIcon(
-        'maps-page',
-        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        [
-            'source' => 'EXT:maps/Resources/Public/Icons/Page.svg'
-        ]
-    );
+    // Add wizard with map for setting geo location
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1546531781] = [
+        'nodeName' => 'locationMapWizard',
+        'priority' => 30,
+        'class' => \WerkraumMedia\Maps\FormEngine\FieldControl\LocationMapWizard::class
+    ];
 
      // Allow backend users to drag and drop the new page type:
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(

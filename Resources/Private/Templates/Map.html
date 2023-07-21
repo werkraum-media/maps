@@ -1,9 +1,9 @@
 <html data-namespace-typo3-fluid="true"
       xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 
-   <div id="map" style="width: 100%; height: 800px; border: 1px solid red;"></div>
+   <div id="map" style="width: 640px; height: 640px; border: 1px solid black;"></div>
 
-   <f:asset.css identifier="leaflet-css" href="EXT:maps/Resources/Public/Stylesheets/leaflet/leaflet.css" />
+   <f:asset.css identifier="leaflet-css" href="EXT:maps/Resources/Public/Stylesheets/leaflet/leaflet-1.9.4.css" />
 
    <f:asset.script identifier="leaflet-vars">
       var pois = {pois -> f:format.json() -> f:format.raw()}
@@ -18,8 +18,8 @@
       var marker = {'city': 'blue', 'sight': 'gold', 'host': 'red', 'bar': 'green', 'shop': 'violet'};
    </f:asset.script>
 
-   <f:asset.script identifier="leaflet-lib" src="EXT:maps/Resources/Public/JavaScripts/leaflet/leaflet.js" />
-   <f:asset.script identifier="leaflet-mask" src="EXT:maps/Resources/Public/JavaScripts/leaflet/leaflet.mask.js" />
-   <f:asset.script identifier="leaflet-map" src="EXT:maps/Resources/Public/JavaScripts/map.js" />
+   <f:asset.script identifier="leaflet-lib" src="EXT:maps/Resources/Public/JavaScript/leaflet/leaflet-1.9.4.js" />
+   <f:asset.script identifier="leaflet-mask" src="EXT:maps/Resources/Public/JavaScript/leaflet/leaflet.mask-1.0.0.js" />
+   <f:asset.script identifier="leaflet-map" src="EXT:maps/Resources/Public/JavaScript/map.js" />
 
 </html>
