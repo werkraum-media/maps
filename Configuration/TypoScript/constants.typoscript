@@ -13,7 +13,8 @@ plugin.tx_maps {
     }
     settings {
         # 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
-        # 'http://localhost:1234/fileadmin/map/{z}/{x}/{y}.png'
+        # 'http://localhost:1234/fileadmin/germany/{z}/{x}/{y}.png'
+        # 'http://localhost:1234/fileadmin/thuringia/{z}/{x}/{y}.png'
         # 'https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=xxxxxxxxxx'
 
         # cat=plugin.tx_maps//a; type=string; label=Default Map Provider
@@ -33,6 +34,6 @@ plugin.tx_maps {
         # cat=plugin.tx_maps//a; type=string; label=Zoom min
         zoomMin = 4
         # cat=plugin.tx_maps//a; type=string; label=Zoom min
-        zoomMax = 10
+        zoomMax = 14
     }
 }
