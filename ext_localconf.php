@@ -1,7 +1,8 @@
 <?php
 
 declare(strict_types=1);
-defined('TYPO3_MODE') || die('Access denied.');
+
+defined('TYPO3') || die('Access denied from extension maps in localconf.');
 
 (function ($extKey='maps') {
 
