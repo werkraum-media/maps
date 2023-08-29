@@ -174,7 +174,7 @@ defined('TYPO3') or die();
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
             'pages',
             '--div--;Geodata, geo_lat, geo_long, geo_title, geo_subtitle, geo_address, geo_phone, geo_email, geo_www, geo_booking, geo_type',
-            $poiDoktype
+            (string) $poiDoktype
         );
 
 })();
