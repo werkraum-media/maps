@@ -85,11 +85,21 @@ tt_content {
                 }
             }
         }
+        /* https://docs.typo3.org/m/typo3/reference-typoscript/main/en-us/Setup/Page/Index.html#jsfooterinline-array */
         variables {
+            
+            /* --> */
             mapProvider = TEXT
             mapProvider.value < plugin.tx_maps.settings.mapProvider
+
             attributionProvider = TEXT
             attributionProvider.value < plugin.tx_maps.settings.attributionProvider
+            
+            resourcePathIcons = FLUIDTEMPLATE
+            resourcePathIcons.template = TEXT
+            resourcePathIcons.template.value = {f:uri.resource(extensionName: 'maps', path: 'Icons/', absolute:1)}
+            /* <-- */
+
             permanentGeoJson = TEXT
             permanentGeoJson.value < plugin.tx_maps.settings.permanentGeoJson
             maskGeoJson = TEXT

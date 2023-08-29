@@ -5,6 +5,7 @@ defined('TYPO3') or die();
 
 (function ($extKey='maps', $table='pages') {
 
+        // Global definieren
         $poiDoktype = 116;
 
         // Add new page type as possible select item:
