@@ -37,24 +37,19 @@ plugin.tx_maps {
     }
 }
 
-page {
-    includeCSS {
-        #leaflet = EXT:maps/Resources/Public/Stylesheets/leaflet/leaflet.css
-    }
-    includeJSFooterlibs {
-        #leaflet = EXT:maps/Resources/Public/JavaScripts/leaflet/leaflet.js
-        #mask = EXT:maps/Resources/Public/JavaScripts/leaflet/leaflet.mask.js
-        #map = EXT:maps/Resources/Public/JavaScripts/map.js
-    }
-}
+page.jsFooterInline {
+    10 = TEXT
+    10.value < plugin.tx_maps.settings.mapProvider
+    10.wrap = var mapProvider = |;
 
-/*
-lib.contentElement {
-  templateRootPaths {
-    200 = EXT:maps/Resources/Private/Templates/
-  }
+    20 = TEXT
+    20.value < plugin.tx_maps.settings.attributionProvider
+    20.wrap = var attributionProvider = |;
+
+    30 = FLUIDTEMPLATE
+    30.template = TEXT
+    30.template.value = var resourcePath = '{f:uri.resource(extensionName: 'maps', path: 'Images/marker/', absolute:1)}';
 }
-*/
 
 tt_content {
     map =< lib.contentElement
@@ -71,7 +66,7 @@ tt_content {
             20 {
                 if.isTrue.field = pages
                 table = pages
-                selectFields = title, abstract, slug, geo_lat, geo_long, geo_title, geo_subtitle, geo_address, geo_type, geo_phone, geo_email, geo_www, geo_booking
+                selectFields = title, subtitle, abstract, slug, geo_lat, geo_long, geo_title, geo_subtitle, geo_address, geo_type, geo_phone, geo_email, geo_www, geo_booking
                 orderBy = pid
                 pidInList.field = pages
                 recursive = 0
@@ -88,7 +83,7 @@ tt_content {
         /* https://docs.typo3.org/m/typo3/reference-typoscript/main/en-us/Setup/Page/Index.html#jsfooterinline-array */
         variables {
             
-            /* --> */
+            /*
             mapProvider = TEXT
             mapProvider.value < plugin.tx_maps.settings.mapProvider
 
@@ -97,8 +92,8 @@ tt_content {
             
             resourcePathIcons = FLUIDTEMPLATE
             resourcePathIcons.template = TEXT
-            resourcePathIcons.template.value = {f:uri.resource(extensionName: 'maps', path: 'Icons/', absolute:1)}
-            /* <-- */
+            resourcePathIcons.template.value = var resourcePath = {f:uri.resource(extensionName: 'maps', path: 'Icons/', absolute:1)}
+            */
 
             permanentGeoJson = TEXT
             permanentGeoJson.value < plugin.tx_maps.settings.permanentGeoJson

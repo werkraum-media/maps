@@ -19,12 +19,13 @@ plugin.tx_maps {
 
         # cat=plugin.tx_maps//a; type=string; label=Default Map Provider
         mapProvider = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+        #mapProvider = 'http://localhost:1234/fileadmin/germany/{z}/{x}/{y}.png'
         # cat=plugin.tx_maps//a; type=string; label=Map Provider Attribution
         attributionProvider = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         # cat=plugin.tx_maps//a; type=string; label=Permanent GeoJson
         permanentGeoJson =
         # cat=plugin.tx_maps//a; type=string; label=Mask geoJson
-        maskGeoJson ='/typo3conf/ext/maps/Resources/Public/Data/germany.geo.json'
+        maskGeoJson ='Data/germany.geo.json'
         # cat=plugin.tx_maps//a; type=string; label=Mask color
         maskColor ='#ffffff'
         # cat=plugin.tx_maps//a; type=string; label=Bounds North East
@@ -34,6 +35,6 @@ plugin.tx_maps {
         # cat=plugin.tx_maps//a; type=string; label=Zoom min
         zoomMin = 4
         # cat=plugin.tx_maps//a; type=string; label=Zoom min
-        zoomMax = 14
+        zoomMax = 18
     }
 }

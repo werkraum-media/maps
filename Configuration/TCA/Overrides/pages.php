@@ -5,8 +5,7 @@ defined('TYPO3') or die();
 
 (function ($extKey='maps', $table='pages') {
 
-        // Global definieren
-        $poiDoktype = 116;
+        $poiDoktype = \WerkraumMedia\Maps\Extension::PAGE_DOKTYPE_POI;
 
         // Add new page type as possible select item:
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
