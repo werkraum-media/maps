@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  WerkraumMedia\Maps\:
+    resource: '../Classes/*'
+
+  WerkraumMedia\Maps\DataProcessing\ImageProcessor:
+    tags:
+      - name: 'data.processor'
+        identifier: image-processor'

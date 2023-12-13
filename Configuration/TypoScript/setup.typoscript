@@ -59,23 +59,28 @@ tt_content {
             10 = EXT:maps/Resources/Private/Templates/
         }
         dataProcessing {
-
-            10 = TYPO3\CMS\Frontend\DataProcessing\FlexFormProcessor
-
-            20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-            20 {
+            
+            10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            10 {
                 if.isTrue.field = pages
                 table = pages
-                selectFields = title, subtitle, abstract, slug, geo_lat, geo_long, geo_title, geo_subtitle, geo_address, geo_type, geo_phone, geo_email, geo_www, geo_booking
+                selectFields = uid, title, subtitle, abstract, slug, media, geo_lat, geo_long, geo_title, geo_subtitle, geo_address, geo_type, geo_phone, geo_email, geo_www, geo_booking
                 orderBy = pid
                 pidInList.field = pages
-                recursive = 0
+                recursive = 1
                 as = pois
                 where = doktype = 116
                 dataProcessing {
                     10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                     10 {
-                        references.fieldName = image
+                        references.fieldName = media
+                        references.table = pages
+                    }
+                    20 = WerkraumMedia\Maps\DataProcessing\ImageProcessor
+                    20 {
+                        targetWidth = 800
+                        targetHeight = 600
+                        as = processedImages
                     }
                 }
             }

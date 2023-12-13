@@ -35,8 +35,6 @@
             drawMask(map, maskGeoJson, maskColor);
         }
 
-        console.log(map);
-
     };
 
     let drawMarkers = function(map, pois, marker) {
