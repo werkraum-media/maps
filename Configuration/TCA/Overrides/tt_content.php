@@ -25,28 +25,6 @@ defined('TYPO3') or die();
         'after'
     );
 
-    /*
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-        '*',
-        'FILE:EXT:maps/Configuration/FlexForms/Flexform.xml',
-        'map'
-    );
-    */
-
-    /*
-            'showitem' => '
-            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-                --palette--;;general,
-                header; Internal title,
-                pages; Pages,
-                pi_flexform,
-            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
-                --palette--;;hidden,
-                --palette--;;access,
-        ',
-    */
-    
-
     $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['map'] = 'maps-ce';
 
     $GLOBALS['TCA']['tt_content']['types']['map'] = [

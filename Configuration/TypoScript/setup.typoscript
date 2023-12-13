@@ -36,6 +36,8 @@ plugin.tx_maps {
         boundsSouthWest = {$plugin.tx_maps.settings.boundsSouthWest}
         zoomMin = {$plugin.tx_maps.settings.zoomMin}
         zoomMax = {$plugin.tx_maps.settings.zoomMax}
+        clickBehaviour = {$plugin.tx_maps.settings.clickBehaviour}
+        showTooltip = {$plugin.tx_maps.settings.showTooltip}
     }
 }
 
@@ -106,6 +108,10 @@ tt_content {
             zoomMin.value < plugin.tx_maps.settings.zoomMin
             zoomMax = TEXT
             zoomMax.value < plugin.tx_maps.settings.zoomMax
+            clickBehaviour = TEXT
+            clickBehaviour.value < plugin.tx_maps.settings.clickBehaviour
+            showTooltip = TEXT
+            showTooltip.value < plugin.tx_maps.settings.showTooltip
         }
     }
 }

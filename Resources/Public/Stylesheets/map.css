@@ -3,3 +3,46 @@
     width: 100%;
     height: 500px;
 }
+
+.infobox {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #333333;
+    color: #ffffff;
+    z-index: 1000;
+    height:100%;
+    width:200px;
+    transform: translateX(101%);
+    -webkit-transform: translateX(101%);
+    -webkit-box-shadow: -5px 0px 15px 0px #000000; 
+    box-shadow: -5px 0px 15px 0px #000000;
+}
+
+.slide-in {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+}
+
+.slide-out {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+}
+    
+@keyframes slide-in {
+    100% { transform: translateX(0); }
+}
+
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(0); }
+}
+    
+@keyframes slide-out {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(101%); }
+}
+
+@-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(101%); }
+}

@@ -39,5 +39,9 @@ plugin.tx_maps {
         zoomMin = 4
         # cat=plugin.tx_maps//a; type=string; label=Zoom min
         zoomMax = 18
+        # cat=plugin.tx_maps//a; type=string; label=Possible settings: INFO, POPUP, LINK
+        clickBehaviour = INFO
+        # cat=plugin.tx_maps//a; type=string; label=Possible settings: 1, 0
+        showTooltip = 1
     }
 }
