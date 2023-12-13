@@ -165,7 +165,7 @@
                 infobox.removeAttribute("data-current-poi");
             } else {
                 infobox.innerHTML = buildInfo(poi);
-                infobox.classList.remove("slide-out");ç
+                infobox.classList.remove("slide-out");
                 infobox.classList.add("slide-in");
                 infobox.setAttribute("data-current-poi", poi['uid']);
             }
