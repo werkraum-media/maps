@@ -25,6 +25,8 @@ plugin.tx_maps {
 
     }
     settings {
+        stylesheet = {$plugin.tx_maps.settings.stylesheet}
+        javascript = {$plugin.tx_maps.settings.javascript}
         mapProvider = {$plugin.tx_maps.settings.mapProvider}
         attributionProvider = {$plugin.tx_maps.settings.attributionProvider}
         permanentGeoJson = {$plugin.tx_maps.settings.permanentGeoJson}
@@ -85,21 +87,11 @@ tt_content {
                 }
             }
         }
-        /* https://docs.typo3.org/m/typo3/reference-typoscript/main/en-us/Setup/Page/Index.html#jsfooterinline-array */
         variables {
-            
-            /*
-            mapProvider = TEXT
-            mapProvider.value < plugin.tx_maps.settings.mapProvider
-
-            attributionProvider = TEXT
-            attributionProvider.value < plugin.tx_maps.settings.attributionProvider
-            
-            resourcePathIcons = FLUIDTEMPLATE
-            resourcePathIcons.template = TEXT
-            resourcePathIcons.template.value = var resourcePath = {f:uri.resource(extensionName: 'maps', path: 'Icons/', absolute:1)}
-            */
-
+            stylesheet = TEXT
+            stylesheet.value < plugin.tx_maps.settings.stylesheet
+            javascript = TEXT
+            javascript.value < plugin.tx_maps.settings.javascript
             permanentGeoJson = TEXT
             permanentGeoJson.value < plugin.tx_maps.settings.permanentGeoJson
             maskGeoJson = TEXT

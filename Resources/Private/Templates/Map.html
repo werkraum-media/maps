@@ -1,9 +1,7 @@
 <html data-namespace-typo3-fluid="true"
       xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 
-<f:debug>{pois}</f:debug>
-
-   <div class="map" style="width: 640px; height: 640px; border: 1px solid black;"
+   <div class="map"
          data-zoom-min="{zoomMin}"
          data-zoom-max="{zoomMax}"
          data-resource-path-icons="{resourcePathIcons}"
@@ -16,9 +14,10 @@
    </div>
 
    <f:asset.css identifier="leaflet-css" href="EXT:maps/Resources/Public/Stylesheets/leaflet/leaflet-1.9.4.css" />
+   <f:asset.css identifier="map-css" href="{stylesheet}" />
 
    <f:asset.script identifier="leaflet-lib" src="EXT:maps/Resources/Public/JavaScript/leaflet/leaflet-1.9.4.js" />
    <f:asset.script identifier="leaflet-mask" src="EXT:maps/Resources/Public/JavaScript/leaflet/leaflet.mask-1.0.0.js" />
-   <f:asset.script identifier="leaflet-map" src="EXT:maps/Resources/Public/JavaScript/map.js" />
+   <f:asset.script identifier="map" src="{javascript}" />
 
 </html>

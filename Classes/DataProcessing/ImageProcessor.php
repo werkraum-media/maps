@@ -47,10 +47,7 @@ class ImageProcessor implements DataProcessorInterface
         ];
     
         $processedImage = $imageService->applyProcessingInstructions($file, $processingConfiguration);
-        print_r($processedImage);
-        print_r($imageService->getImageUri($processedImage, true));
         if ($processedImage instanceof ProcessedFile && $processedImage->exists()) {
-            print_r('Yes');
             return $processedImage->getPublicUrl();
         } else {
             throw new \RuntimeException('Die Bildbearbeitung ist fehlgeschlagen.');

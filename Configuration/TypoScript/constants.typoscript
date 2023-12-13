@@ -16,7 +16,11 @@ plugin.tx_maps {
         # 'http://localhost:1234/fileadmin/germany/{z}/{x}/{y}.png'
         # 'http://localhost:1234/fileadmin/thuringia/{z}/{x}/{y}.png'
         # 'https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=xxxxxxxxxx'
-
+        
+        # cat=plugin.tx_maps//a; type=string; label=Default Map Stylesheet
+        stylesheet = EXT:maps/Resources/Public/Stylesheets/map.css
+        # cat=plugin.tx_maps//a; type=string; label=Default Map Stylesheet
+        javascript = EXT:maps/Resources/Public/JavaScript/map.js
         # cat=plugin.tx_maps//a; type=string; label=Default Map Provider
         mapProvider = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
         # cat=plugin.tx_maps//a; type=string; label=Map Provider Attribution
