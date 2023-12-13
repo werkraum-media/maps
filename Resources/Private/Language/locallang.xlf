@@ -51,6 +51,9 @@
             <trans-unit id="page.poi.city">
                 <source>City</source>
             </trans-unit>
+            <trans-unit id="page.poi.person">
+                <source>Person</source>
+            </trans-unit>
             <trans-unit id="page.poi.sight">
                 <source>Sight</source>
             </trans-unit>

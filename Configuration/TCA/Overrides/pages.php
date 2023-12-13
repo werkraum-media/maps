@@ -154,6 +154,7 @@ defined('TYPO3') or die();
                     'items' => [
                         ['None', -1],
                         ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:page.poi.city', 'city'],
+                        ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:page.poi.person', 'person'],
                         ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:page.poi.sight', 'sight'],
                         ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:page.poi.host', 'host'],
                         ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:page.poi.bar', 'bar'],
