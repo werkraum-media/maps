@@ -25,9 +25,9 @@ class ImageProcessor implements DataProcessorInterface
 
         foreach ($files as $key => $file) {
             if ($file instanceof FileInterface) {
-                // Bearbeiten des Bildes
+                // Resize Image
                 $resizedImageUrl = $this->resizeImage($file, $targetWidth, $targetHeight);
-                // Ersetzen des ursprünglichen Bild-URLs im processedData-Array
+                // Replace Image URL
                 $processedData['files'][$key] = $resizedImageUrl;
             }
         }
