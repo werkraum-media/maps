@@ -107,7 +107,8 @@
             bounds.extend(poi['latlng']);
         }
 
-        map.fitBounds(bounds);
+        map.fitBounds(bounds, true);
+		map.setMinZoom(map.getZoom());
 
     }
 
