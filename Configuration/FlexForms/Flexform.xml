@@ -6,28 +6,80 @@
     <main>
       <ROOT>
         <TCEforms>
-          <sheetTitle>LLL:EXT:maps/Resources/Private/Language/locallang.xlf:flexform.sheet.title</sheetTitle>
+          <sheetTitle>LLL:EXT:maps/Resources/Private/Language/locallang.xlf:flexform.title</sheetTitle>
         </TCEforms>
         <type>array</type>
         <el>
-          <title>
+          <tooltip>
             <TCEforms>
-              <label>LLL:EXT:maps/Resources/Private/Language/Backend/locallang.xlf:flexform.title</label>
+              <label>LLL:EXT:maps/Resources/Private/Language/locallang_db.xlf:flexform.tooltip</label>
               <config>
-                <type>input</type>
-                <eval>trim,required</eval>
+                <type>check</type>
+                <items type="array">
+                  <numIndex index="0" type="array">
+                    <numIndex index="0">LLL:EXT:maps/Resources/Private/Language/locallang_db.xlf:flexform.tooltip.0</numIndex>
+                    <numIndex index="1">1</numIndex>
+                  </numIndex>
+                </items>
               </config>
             </TCEforms>
-          </title>
-          <subtitle>
+          </tooltip>
+          <behaviour>
             <TCEforms>
-              <label>LLL:EXT:maps/Resources/Private/Language/Backend/locallang.xlf:flexform.subtitle</label>
+              <exclude>1</exclude>
+              <label>LLL:EXT:maps/Resources/Private/Language/locallang_db.xlf:flexform.behaviour</label>
               <config>
-                <type>text</type>
-                <eval>trim</eval>
+                <type>select</type>
+                <renderType>selectSingle</renderType>
+                <items type="array">
+                  <numIndex index="-1" type="array">
+                    <numIndex index="0">
+                      LLL:EXT:maps/Resources/Private/Language/locallang_db.xlf:flexform.behaviour.0</numIndex>
+                    <numIndex index="1">None</numIndex>
+                  </numIndex>
+                  <numIndex index="1" type="array">
+                    <numIndex index="0">
+                      LLL:EXT:maps/Resources/Private/Language/locallang_db.xlf:flexform.behaviour.1</numIndex>
+                    <numIndex index="1">INFO</numIndex>
+                  </numIndex>
+                  <numIndex index="2" type="array">
+                    <numIndex index="0">
+                      LLL:EXT:maps/Resources/Private/Language/locallang_db.xlf:flexform.behaviour.2</numIndex>
+                    <numIndex index="1">POPUP</numIndex>
+                  </numIndex>
+                  <numIndex index="3" type="array">
+                    <numIndex index="0">
+                      LLL:EXT:maps/Resources/Private/Language/locallang_db.xlf:flexform.behaviour.3</numIndex>
+                    <numIndex index="1">LINK</numIndex>
+                  </numIndex>
+                </items>
               </config>
             </TCEforms>
-          </subtitle>
+          </behaviour>
+          <!-- 
+          <selection>
+            <TCEforms>
+              <exclude>1</exclude>
+              <label>LLL:EXT:maps/Resources/Private/Language/locallang_db.xlf:flexform.selection</label>
+              <config>
+                <type>select</type>
+                <renderType>selectSingle</renderType>
+                <items type="array">
+                  <numIndex index="-1" type="array">
+                    <numIndex index="0">
+                      LLL:EXT:maps/Resources/Private/Language/locallang_db.xlf:flexform.selection.pages</numIndex>
+                    <numIndex index="1">PAGES</numIndex>
+                  </numIndex>
+                  <numIndex index="1" type="array">
+                    <numIndex index="0">
+                      LLL:EXT:maps/Resources/Private/Language/locallang_db.xlf:flexform.selection.subpages</numIndex>
+                    <numIndex index="1">SUBPAGES</numIndex>
+                  </numIndex>
+                </items>
+              </config>
+            </TCEforms>
+          </selection>
+          -->
         </el>
       </ROOT>
     </main>

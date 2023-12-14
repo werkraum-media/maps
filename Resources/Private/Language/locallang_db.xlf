@@ -12,6 +12,39 @@
             <trans-unit id="locationMapWizard.import">
                 <source>Import marker-coordinates</source>
             </trans-unit>
+            <trans-unit id="flexform.title">
+                <source>Configuration</source>
+            </trans-unit>
+            <trans-unit id="flexform.tooltip">
+                <source>Tooltip</source>
+            </trans-unit>
+            <trans-unit id="flexform.tooltip.0">
+                <source>Show tooltip on marker hover</source>
+            </trans-unit>
+            <trans-unit id="flexform.selection">
+                <source>Selection</source>
+            </trans-unit>
+            <trans-unit id="flexform.selection.pages">
+                <source>Selected pages</source>
+            </trans-unit>
+            <trans-unit id="flexform.selection.subpages">
+                <source>Subpages of selected pages</source>
+            </trans-unit>
+            <trans-unit id="flexform.behaviour">
+                <source>Marker behaviour</source>
+            </trans-unit>
+            <trans-unit id="flexform.behaviour.0">
+                <source>None</source>
+            </trans-unit>
+            <trans-unit id="flexform.behaviour.1">
+                <source>Open infobox</source>
+            </trans-unit>
+            <trans-unit id="flexform.behaviour.2">
+                <source>Open popup</source>
+            </trans-unit>
+            <trans-unit id="flexform.behaviour.3">
+                <source>Open Link</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

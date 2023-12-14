@@ -63,15 +63,20 @@ tt_content {
             10 = EXT:maps/Resources/Private/Templates/
         }
         dataProcessing {
-            
-            10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            10 = TYPO3\CMS\Frontend\DataProcessing\FlexFormProcessor
             10 {
+                #fieldname = pi_flexform
+                #as = flexFormData
+            }
+            20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            20 {
                 if.isTrue.field = pages
                 table = pages
                 selectFields = uid, title, subtitle, abstract, slug, media, geo_lat, geo_long, geo_title, geo_subtitle, geo_address, geo_type, geo_phone, geo_email, geo_www, geo_booking
                 orderBy = pid
-                pidInList.field = pages
-                recursive = 1
+                uidInList.field = pages
+                pidInList = 0
+                recursive = 0
                 as = pois
                 where = doktype = 116
                 dataProcessing {
@@ -109,9 +114,9 @@ tt_content {
             zoomMax = TEXT
             zoomMax.value < plugin.tx_maps.settings.zoomMax
             clickBehaviour = TEXT
-            clickBehaviour.value < plugin.tx_maps.settings.clickBehaviour
+            clickBehaviour.data = flexform:pi_flexform:behaviour
             showTooltip = TEXT
-            showTooltip.value < plugin.tx_maps.settings.showTooltip
+            showTooltip.data = flexform:pi_flexform:tooltip
         }
     }
 }

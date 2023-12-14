@@ -18,5 +18,5 @@ mod.wizards.newContentElement.wizardItems {
 }
 
 TCEFORM.tt_content {
-    CType.keepItems := addToList(map)
+    CType.addItems := addToList(map)
 }

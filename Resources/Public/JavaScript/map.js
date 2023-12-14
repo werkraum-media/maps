@@ -11,7 +11,7 @@
         var zoomMin = mapElement.getAttribute("data-zoom-min");
         var zoomMax = mapElement.getAttribute("data-zoom-max");
         var pois = JSON.parse(mapElement.getAttribute("data-pois"));
-        var marker = JSON.parse((mapElement.getAttribute("data-marker")));
+        var markerTypes = JSON.parse((mapElement.getAttribute("data-marker")));
         var maskGeoJson = mapElement.getAttribute("data-mask-geo-json");
         var maskColor = mapElement.getAttribute("data-mask-color");
         var clickBehaviour = mapElement.getAttribute("data-click-behaviour");
@@ -30,8 +30,19 @@
             attribution: attributionProvider
         }).addTo(map);
 
-        if (pois != null && marker != null) {
-            drawMarkers(map, pois, marker, clickBehaviour, showTooltip);
+        if (clickBehaviour == 'INFO') {
+            map.on('click', function(e) {        
+                let infobox = document.getElementById("infobox");   
+                if (infobox.getAttribute('data-current-poi') !== null) {
+                    infobox.classList.remove("slide-in");
+                    infobox.classList.add("slide-out");
+                    infobox.removeAttribute("data-current-poi");
+                }
+            });
+        }
+
+        if (pois != null && markerTypes != null) {
+            drawMarkers(map, pois, markerTypes, clickBehaviour, showTooltip);
         }
 
         if (maskGeoJson != null && maskColor != null) {
@@ -40,7 +51,7 @@
 
     };
 
-    let drawMarkers = function(map, pois, marker, clickBehaviour, showTooltip) {
+    let drawMarkers = function(map, pois, markerTypes, clickBehaviour, showTooltip) {
 
         var bounds = L.latLngBounds();
         var marker;
@@ -48,7 +59,7 @@
         for (var i in pois) {
             var poi = [];
             poi['uid'] = pois[i].data.uid;
-            poi['type'] = ((pois[i].data.geo_type != '-1') ? marker[pois[i].data.geo_type] : 'blue');
+            poi['type'] = ((pois[i].data.geo_type != '-1') ? markerTypes[pois[i].data.geo_type] : 'black');
             poi['latlng'] = L.latLng({ lat: pois[i].data.geo_lat, lng: pois[i].data.geo_long });
             poi['slug'] = ((pois[i].data.slug) ? pois[i].data.slug : null);
             poi['title'] = ((pois[i].data.geo_title) ? pois[i].data.geo_title : pois[i].data.title);
@@ -80,16 +91,16 @@
                 })(poi));
             }
 
-            if (clickBehaviour == 'POPUP') {
-                marker.bindPopup(buildPopup(poi));
-            }
-
             if (clickBehaviour == 'LINK') {
                 marker.on('click', (function(poi) {
                     return function(e) {
                         window.location = (poi['slug']);
                     };
                 })(poi));
+            }
+
+            if (clickBehaviour == 'POPUP') {
+                marker.bindPopup(buildPopup(poi));
             }
 
             marker.addTo(map);
@@ -133,12 +144,14 @@
     };
 
     let buildInfo = function(poi) {
-        content = `${poi['image'] ? `<img src="${poi['image']}" width="100%" />` : 'Kein Bild'}
-        <h3><a href="${poi['slug']}">${poi['title']}</a></h3>
-        ${poi['subtitle'] ? `<h4>${poi['subtitle']}</h4>` : ''}
+        content = `${poi['image'] ? `<div class="image"><img src="${poi['image']}" width="100%" /></div>` : ''}
+        <div class="text">
+        <span class="h3"><a href="${poi['slug']}">${poi['title']}</a></span>
+        ${poi['subtitle'] ? `<span class="h4">${poi['subtitle']}</span>` : ''}
         ${poi['abstract'] ? `<p>${poi['abstract']}</p>` : ''}
         ${poi['address'] ? `<p>${nl2br(poi['address'])}</p>`: ''}
-        <p><a href="${poi['slug']}">Mehr Informationen</a></p>`
+        <p><a href="${poi['slug']}">Mehr Informationen</a></p>
+        </div>`
 
         return content;
     }
