@@ -16,7 +16,11 @@ plugin.tx_maps {
         # 'http://localhost:1234/fileadmin/germany/{z}/{x}/{y}.png'
         # 'http://localhost:1234/fileadmin/thuringia/{z}/{x}/{y}.png'
         # 'https://api.maptiler.com/maps/topo/{z}/{x}/{y}.png?key=xxxxxxxxxx'
-
+        
+        # cat=plugin.tx_maps//a; type=string; label=Default Map Stylesheet
+        stylesheet = EXT:maps/Resources/Public/Stylesheets/map.css
+        # cat=plugin.tx_maps//a; type=string; label=Default Map Stylesheet
+        javascript = EXT:maps/Resources/Public/JavaScript/map.js
         # cat=plugin.tx_maps//a; type=string; label=Default Map Provider
         mapProvider = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
         # cat=plugin.tx_maps//a; type=string; label=Map Provider Attribution
@@ -24,7 +28,7 @@ plugin.tx_maps {
         # cat=plugin.tx_maps//a; type=string; label=Permanent GeoJson
         permanentGeoJson =
         # cat=plugin.tx_maps//a; type=string; label=Mask geoJson
-        maskGeoJson ='/typo3conf/ext/maps/Resources/Public/Data/germany.geo.json'
+        maskGeoJson ='Data/germany.geo.json'
         # cat=plugin.tx_maps//a; type=string; label=Mask color
         maskColor ='#ffffff'
         # cat=plugin.tx_maps//a; type=string; label=Bounds North East
@@ -34,6 +38,10 @@ plugin.tx_maps {
         # cat=plugin.tx_maps//a; type=string; label=Zoom min
         zoomMin = 4
         # cat=plugin.tx_maps//a; type=string; label=Zoom min
-        zoomMax = 14
+        zoomMax = 18
+        # cat=plugin.tx_maps//a; type=string; label=Possible settings: INFO, POPUP, LINK
+        clickBehaviour = INFO
+        # cat=plugin.tx_maps//a; type=string; label=Possible settings: 1, 0
+        showTooltip = 1
     }
 }

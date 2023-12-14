@@ -25,6 +25,8 @@ plugin.tx_maps {
 
     }
     settings {
+        stylesheet = {$plugin.tx_maps.settings.stylesheet}
+        javascript = {$plugin.tx_maps.settings.javascript}
         mapProvider = {$plugin.tx_maps.settings.mapProvider}
         attributionProvider = {$plugin.tx_maps.settings.attributionProvider}
         permanentGeoJson = {$plugin.tx_maps.settings.permanentGeoJson}
@@ -34,27 +36,24 @@ plugin.tx_maps {
         boundsSouthWest = {$plugin.tx_maps.settings.boundsSouthWest}
         zoomMin = {$plugin.tx_maps.settings.zoomMin}
         zoomMax = {$plugin.tx_maps.settings.zoomMax}
+        clickBehaviour = {$plugin.tx_maps.settings.clickBehaviour}
+        showTooltip = {$plugin.tx_maps.settings.showTooltip}
     }
 }
 
-page {
-    includeCSS {
-        #leaflet = EXT:maps/Resources/Public/Stylesheets/leaflet/leaflet.css
-    }
-    includeJSFooterlibs {
-        #leaflet = EXT:maps/Resources/Public/JavaScripts/leaflet/leaflet.js
-        #mask = EXT:maps/Resources/Public/JavaScripts/leaflet/leaflet.mask.js
-        #map = EXT:maps/Resources/Public/JavaScripts/map.js
-    }
-}
+page.jsFooterInline {
+    10 = TEXT
+    10.value < plugin.tx_maps.settings.mapProvider
+    10.wrap = var mapProvider = |;
 
-/*
-lib.contentElement {
-  templateRootPaths {
-    200 = EXT:maps/Resources/Private/Templates/
-  }
+    20 = TEXT
+    20.value < plugin.tx_maps.settings.attributionProvider
+    20.wrap = var attributionProvider = |;
+
+    30 = FLUIDTEMPLATE
+    30.template = TEXT
+    30.template.value = var resourcePath = '{f:uri.resource(extensionName: 'maps', path: 'Images/marker/', absolute:1)}';
 }
-*/
 
 tt_content {
     map =< lib.contentElement
@@ -64,32 +63,42 @@ tt_content {
             10 = EXT:maps/Resources/Private/Templates/
         }
         dataProcessing {
-
             10 = TYPO3\CMS\Frontend\DataProcessing\FlexFormProcessor
-
+            10 {
+                #fieldname = pi_flexform
+                #as = flexFormData
+            }
             20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
             20 {
                 if.isTrue.field = pages
                 table = pages
-                selectFields = title, abstract, geo_lat, geo_long, geo_title, geo_subtitle, geo_address, geo_type, geo_phone, geo_email, geo_www, geo_booking
+                selectFields = uid, title, subtitle, abstract, slug, media, geo_lat, geo_long, geo_title, geo_subtitle, geo_address, geo_type, geo_phone, geo_email, geo_www, geo_booking
                 orderBy = pid
-                pidInList.field = pages
+                uidInList.field = pages
+                pidInList = 0
                 recursive = 0
                 as = pois
                 where = doktype = 116
                 dataProcessing {
                     10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
                     10 {
-                        references.fieldName = image
+                        references.fieldName = media
+                        references.table = pages
+                    }
+                    20 = WerkraumMedia\Maps\DataProcessing\ImageProcessor
+                    20 {
+                        targetWidth = 800
+                        targetHeight = 600
+                        as = processedImages
                     }
                 }
             }
         }
         variables {
-            mapProvider = TEXT
-            mapProvider.value < plugin.tx_maps.settings.mapProvider
-            attributionProvider = TEXT
-            attributionProvider.value < plugin.tx_maps.settings.attributionProvider
+            stylesheet = TEXT
+            stylesheet.value < plugin.tx_maps.settings.stylesheet
+            javascript = TEXT
+            javascript.value < plugin.tx_maps.settings.javascript
             permanentGeoJson = TEXT
             permanentGeoJson.value < plugin.tx_maps.settings.permanentGeoJson
             maskGeoJson = TEXT
@@ -104,6 +113,10 @@ tt_content {
             zoomMin.value < plugin.tx_maps.settings.zoomMin
             zoomMax = TEXT
             zoomMax.value < plugin.tx_maps.settings.zoomMax
+            clickBehaviour = TEXT
+            clickBehaviour.data = flexform:pi_flexform:behaviour
+            showTooltip = TEXT
+            showTooltip.data = flexform:pi_flexform:tooltip
         }
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-defined('TYPO3_MODE') or die();
+defined('TYPO3') or die();
 
 (function ($extKey='maps', $table='tt_content') {
 
@@ -25,27 +25,12 @@ defined('TYPO3_MODE') or die();
         'after'
     );
 
-    /*
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
         '*',
         'FILE:EXT:maps/Configuration/FlexForms/Flexform.xml',
+        // ctype
         'map'
     );
-    */
-
-    /*
-            'showitem' => '
-            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-                --palette--;;general,
-                header; Internal title,
-                pages; Pages,
-                pi_flexform,
-            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
-                --palette--;;hidden,
-                --palette--;;access,
-        ',
-    */
-    
 
     $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['map'] = 'maps-ce';
 
@@ -57,11 +42,15 @@ defined('TYPO3_MODE') or die();
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;;general,
                 header; Internal title,
+                pi_flexform; Settings,
                 pages; Pages,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
                 --palette--;;hidden,
                 --palette--;;access,
         ',
     ];
+
+
+
 
 })();

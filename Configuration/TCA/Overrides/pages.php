@@ -1,11 +1,11 @@
 <?php
 
 declare(strict_types=1);
-defined('TYPO3_MODE') or die();
+defined('TYPO3') or die();
 
 (function ($extKey='maps', $table='pages') {
 
-        $poiDoktype = 116;
+        $poiDoktype = \WerkraumMedia\Maps\Extension::PAGE_DOKTYPE_POI;
 
         // Add new page type as possible select item:
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
@@ -154,6 +154,7 @@ defined('TYPO3_MODE') or die();
                     'items' => [
                         ['None', -1],
                         ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:page.poi.city', 'city'],
+                        ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:page.poi.person', 'person'],
                         ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:page.poi.sight', 'sight'],
                         ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:page.poi.host', 'host'],
                         ['LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:page.poi.bar', 'bar'],
@@ -174,7 +175,7 @@ defined('TYPO3_MODE') or die();
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
             'pages',
             '--div--;Geodata, geo_lat, geo_long, geo_title, geo_subtitle, geo_address, geo_phone, geo_email, geo_www, geo_booking, geo_type',
-            $poiDoktype
+            (string) $poiDoktype
         );
 
 })();

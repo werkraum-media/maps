@@ -1,25 +1,21 @@
-<html data-namespace-typo3-fluid="true"
-      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 
-   <div id="map" style="width: 640px; height: 640px; border: 1px solid black;"></div>
+    <div class="map" data-zoom-min="{zoomMin}" data-zoom-max="{zoomMax}" data-resource-path-icons="{resourcePathIcons}"
+        data-pois="{pois -> f:format.json()}" data-bounds-north-east="[{boundsNorthEast -> f:format.raw()}]"
+        data-bounds-south-west="[{boundsSouthWest -> f:format.raw()}]"
+        data-mask-geo-json="{f:uri.resource(extensionName: 'maps', path: 'Data/germany.geo.json', absolute:1)}"
+        data-mask-color="#ffffff"
+        data-click-behaviour="{clickBehaviour}"
+        data-show-tooltip="{showTooltip}"
+        data-marker='{"city": "blue", "person": "orange", "sight": "gold", "host": "red", "bar": "green", "shop": "violet"}'>
+        <div id="infobox" class="infobox"></div>
+    </div>
 
-   <f:asset.css identifier="leaflet-css" href="EXT:maps/Resources/Public/Stylesheets/leaflet/leaflet-1.9.4.css" />
+    <f:asset.css identifier="leaflet-css" href="EXT:maps/Resources/Public/Stylesheets/leaflet/leaflet-1.9.4.css" />
+    <f:asset.css identifier="map-ext-css" href="{stylesheet}" />
 
-   <f:asset.script identifier="leaflet-vars">
-      var pois = {pois -> f:format.json() -> f:format.raw()}
-      var mapProvider = {mapProvider -> f:format.raw()}
-      var attributionProvider = {attributionProvider -> f:format.raw()}
-      var boundsNorthEast = [{boundsNorthEast -> f:format.raw()}]
-      var boundsSouthWest = [{boundsSouthWest -> f:format.raw()}]
-      var zoomMin = {zoomMin}
-      var zoomMax = {zoomMax}
-      var maskGeoJson = {maskGeoJson -> f:format.raw()}
-      var maskColor = {maskColor}
-      var marker = {'city': 'blue', 'sight': 'gold', 'host': 'red', 'bar': 'green', 'shop': 'violet'};
-   </f:asset.script>
-
-   <f:asset.script identifier="leaflet-lib" src="EXT:maps/Resources/Public/JavaScript/leaflet/leaflet-1.9.4.js" />
-   <f:asset.script identifier="leaflet-mask" src="EXT:maps/Resources/Public/JavaScript/leaflet/leaflet.mask-1.0.0.js" />
-   <f:asset.script identifier="leaflet-map" src="EXT:maps/Resources/Public/JavaScript/map.js" />
+    <f:asset.script identifier="leaflet-lib-js" src="EXT:maps/Resources/Public/JavaScript/leaflet/leaflet-1.9.4.js" />
+    <f:asset.script identifier="leaflet-mask-js" src="EXT:maps/Resources/Public/JavaScript/leaflet/leaflet.mask-1.0.0.js" />
+    <f:asset.script identifier="map-ext-js" src="{javascript}" />
 
 </html>

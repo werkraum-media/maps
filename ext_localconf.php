@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-defined('TYPO3_MODE') || die('Access denied.');
+defined('TYPO3') or die();
 
 (function ($extKey='maps') {
 
@@ -25,6 +25,14 @@ defined('TYPO3_MODE') || die('Access denied.');
         'priority' => 30,
         'class' => \WerkraumMedia\Maps\FormEngine\FieldControl\LocationMapWizard::class
     ];
+
+    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['t3api']['cors']['allowCredentials'] = false;
+    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['t3api']['cors']['allowOrigin'] = ['http://localhost:1234'];
+    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['t3api']['cors']['allowHeaders'] = ['*'];
+    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['t3api']['cors']['allowMethods'] = ['*'];
+    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['t3api']['cors']['exposeHeaders'] = [];
+    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['t3api']['cors']['maxAge'] = 0;
+    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['t3api']['cors']['originRegex'] = false;
 
      // Allow backend users to drag and drop the new page type:
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
