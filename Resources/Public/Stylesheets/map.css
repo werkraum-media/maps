@@ -8,7 +8,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    background: #333333;
+    background: #4A0476;
     color: #ffffff;
     z-index: 1000;
     height:100%;
@@ -30,6 +30,16 @@
 .infobox .text a {
     color: #ffffff;
     text-decoration: underline;
+}
+
+.infobox .text .h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.infobox .text .h4 {
+    color: #ffffff;
+    font-size: 1rem;
 }
 
 .slide-in {

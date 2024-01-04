@@ -20,7 +20,7 @@
             minZoom: zoomMin,
             maxZoom: zoomMax,
             maxBounds: bounds
-        }).setView([51.37975919204143, 10.541374896190414], 8);
+        }).setView([51.37975919204143, 10.541374896190414], 12);
 
         map.scrollWheelZoom.disable();
         
@@ -107,7 +107,7 @@
         }
 
         map.addLayer(group)
-        map.fitBounds(group.getBounds());
+        map.fitBounds(group.getBounds().pad(0.5));
 
     }
 
@@ -119,7 +119,8 @@
             stroke: true, 
             color: maskColor, 
             width: 1, 
-            opacity: 1
+            opacity: 1,
+            fitBounds: false
             }
         ).addTo(map);
 
