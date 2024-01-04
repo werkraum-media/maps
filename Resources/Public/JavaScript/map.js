@@ -1,6 +1,5 @@
 (function () {
 
-
     let initMap = function (mapElement) {
 
         var map;
@@ -41,19 +40,19 @@
             });
         }
 
-        if (pois != null && markerTypes != null) {
-            drawMarkers(map, pois, markerTypes, clickBehaviour, showTooltip);
-        }
-
         if (maskGeoJson != null && maskColor != null) {
             drawMask(map, maskGeoJson, maskColor);
+        }
+
+        if (pois != null && markerTypes != null) {
+            drawMarkers(map, pois, markerTypes, clickBehaviour, showTooltip);
         }
 
     };
 
     let drawMarkers = function(map, pois, markerTypes, clickBehaviour, showTooltip) {
 
-        var bounds = L.latLngBounds();
+        var group = new L.featureGroup();
         var marker;
 
         for (var i in pois) {
@@ -103,12 +102,12 @@
                 marker.bindPopup(buildPopup(poi));
             }
 
-            marker.addTo(map);
-            bounds.extend(poi['latlng']);
+            marker.addTo(group);
+
         }
 
-        map.fitBounds(bounds, true);
-		map.setMinZoom(map.getZoom());
+        map.addLayer(group)
+        map.fitBounds(group.getBounds());
 
     }
 
