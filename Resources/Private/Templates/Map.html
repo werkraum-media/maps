@@ -1,21 +1,78 @@
 <html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 
-    <div class="map" data-zoom-min="{zoomMin}" data-zoom-max="{zoomMax}" data-resource-path-icons="{resourcePathIcons}"
-        data-pois="{pois -> f:format.json()}" data-bounds-north-east="[{boundsNorthEast -> f:format.raw()}]"
-        data-bounds-south-west="[{boundsSouthWest -> f:format.raw()}]"
-        data-mask-geo-json="{f:uri.resource(extensionName: 'maps', path: 'Data/germany.geo.json', absolute:1)}"
-        data-mask-color="#ffffff"
-        data-click-behaviour="{clickBehaviour}"
-        data-show-tooltip="{showTooltip}"
-        data-marker='{"city": "blue", "person": "orange", "sight": "gold", "host": "red", "bar": "green", "shop": "violet"}'>
-        <div id="infobox" class="infobox"></div>
-    </div>
+<div class="map" data-zoom-min="{zoomMin}" data-zoom-max="{zoomMax}" data-resource-path-icons="{resourcePathIcons}"
+    data-pois="{pois -> f:format.json()}" data-bounds-north-east="[{boundsNorthEast -> f:format.raw()}]"
+    data-bounds-south-west="[{boundsSouthWest -> f:format.raw()}]"
+    data-mask-geo-json="{f:uri.resource(extensionName: 'maps', path: 'Data/germany.geo.json', absolute:1)}"
+    {f:if(condition: '{trackGpx}' , then: 'data-track-gpx="{trackGpx}"' , else: '' )} data-mask-color="#ffffff"
+    data-click-behaviour="{clickBehaviour}" data-show-tooltip="{showTooltip}"
+    data-marker='{"city": "blue", "person": "orange", "sight": "gold", "host": "red", "bar": "green", "shop": "violet"}'>
+    <div id="infobox" class="infobox"></div>
+</div>
 
-    <f:asset.css identifier="leaflet-css" href="EXT:maps/Resources/Public/Stylesheets/leaflet/leaflet-1.9.4.css" />
-    <f:asset.css identifier="map-ext-css" href="{stylesheet}" />
+<div id="map-elevation" style="Border:5px solid red;"></div>
 
-    <f:asset.script identifier="leaflet-lib-js" src="EXT:maps/Resources/Public/JavaScript/leaflet/leaflet-1.9.4.js" />
-    <f:asset.script identifier="leaflet-mask-js" src="EXT:maps/Resources/Public/JavaScript/leaflet/leaflet.mask-1.0.0.js" />
-    <f:asset.script identifier="map-ext-js" src="{javascript}" />
+<f:asset.css identifier="leaflet-css" href="EXT:maps/Resources/Public/Stylesheets/leaflet/leaflet-1.9.4.css" />
+<f:asset.css identifier="map-ext-css" href="{stylesheet}" />
+
+<f:if condition="{trackGpx}">
+    <f:asset.css identifier="leaflet-elevation"
+        href="EXT:maps/Resources/Public/Stylesheets/leaflet/leaflet-elevation.css" />
+</f:if>
+
+<f:asset.script identifier="leaflet-lib-js" src="EXT:maps/Resources/Public/JavaScript/leaflet/leaflet-1.9.4.js" />
+<f:asset.script identifier="leaflet-mask-js" src="EXT:maps/Resources/Public/JavaScript/leaflet/leaflet.mask-1.0.0.js" />
+
+<f:if condition="{trackGpx}">
+    <f:asset.script identifier="leaflet-elevation-js"
+        src="EXT:maps/Resources/Public/JavaScript/leaflet/leaflet.elevation-2.5.1.js" />
+</f:if>
+
+<f:asset.script identifier="map-ext-js" src="{javascript}" />
+
+    <!-- i18n 
+    <script>
+        // Register a custom locale
+        L.registerLocale('de:18', {
+            "Acceleration": "Beschleunigung",
+            "Altitude": "Höhe",
+            "Slope": "Steigung",
+            "Speed": "Geschwindigkeit",
+            "Total Length: ": "Länge: ",
+            "Max Elevation: ": "Max Höhe: ",
+            "Min Elevation: ": "Min Höhe: ",
+            "Avg Elevation: ": "Ø Höhe: ",
+            "Total Time: ": "Zeit: ",
+            "Total Ascent: ": "Anstieg: ",
+            "Total Descent: ": "Abstieg: ",
+            "Min Slope: ": "Min Steigung: ",
+            "Max Slope: ": "Max Steigung: ",
+            "Avg Slope: ": "Ø Steigung: ",
+            "Min Speed: ": "Min Geschwindigkeit: ",
+            "Max Speed: ": "Max Geschwindigkeit: ",
+            "Avg Speed: ": "Ø Geschwindigkeit: ",
+            "Min Acceleration: ": "Min Beschleunigung: ",
+            "Max Acceleration: ": "Max Beschleunigung: ",
+            "Avg Acceleration: ": "Ø Beschleunigung: "
+        });
+
+        // Enable a custom locale
+        // L.setLocale('en:18');
+
+        // You can also override a previously defined object
+        L.locales['de'] = L.extend({
+            "y: ": "",
+            "x: ": "",
+            "t: ": "",
+            "T: ": "",
+            "m: ": "",
+            "v: ": "",
+            "a: ": "",
+        }, L.locales['de']);
+
+        // Switch the language
+        L.setLocale('de');
+    </script>
+    -->
 
 </html>
